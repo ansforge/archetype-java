@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<archetype-catalog xmlns="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-catalog/1.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-catalog/1.0.0 http://maven.apache.org/xsd/archetype-catalog-1.0.0.xsd">
+    <archetypes>
+        <archetype>
+            <groupId>fr.ans</groupId>
+            <artifactId>archetype-java</artifactId>
+            <version>1.1.0</version>
+            <description>Archetype for creating miniservice with Spring Framwework to run on Tomcat 7</description>
+        </archetype>
+    </archetypes>
+</archetype-catalog>

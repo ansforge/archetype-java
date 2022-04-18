@@ -1,0 +1,3 @@
+@Library('AnsPipeline') _
+
+${pipelineTemplate}(git:"true")

@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<archetype-descriptor xsi:schemaLocation="https://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.1.0 http://maven.apache.org/xsd/archetype-descriptor-1.1.0.xsd" name="miniservice-suiviparc"
+    xmlns="https://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.1.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<requiredProperties>
+		<requiredProperty key="groupId">
+			<defaultValue>fr.ans</defaultValue>
+		</requiredProperty>
+		<requiredProperty key="artifactId">
+			<defaultValue>archetype-java</defaultValue>
+		</requiredProperty>
+		<requiredProperty key="version">
+			<defaultValue>0.0.1-SNAPSHOT</defaultValue>
+		</requiredProperty>
+		<requiredProperty key="package">
+			<defaultValue>fr.ans</defaultValue>
+		</requiredProperty>
+		<requiredProperty key="parentGroupId">
+			<defaultValue>fr.ans</defaultValue>
+		</requiredProperty>
+		<requiredProperty key="parentArtifactId">
+			<defaultValue>bom-ms</defaultValue>
+		</requiredProperty>
+		<requiredProperty key="parentVersion">
+			<defaultValue>3.0.4</defaultValue>
+		</requiredProperty>
+		<requiredProperty key="pipelineTemplate">
+			<defaultValue>AnsPipelineJdk11Mvn36</defaultValue>
+			<validationRegex>AnsPipelineJdk8Mvn33|AnsPipelineJdk11Mvn36</validationRegex>
+		</requiredProperty>
+	</requiredProperties>
+	<fileSets>
+		<fileSet filtered="true" encoding="UTF-8">
+			<directory></directory>
+			<includes>
+				<include>readme.md</include>
+			</includes>
+		</fileSet>
+		<fileSet filtered="false" encoding="UTF-8">
+      <directory></directory>
+      <includes>
+        <include>.gitignore</include>
+      </includes>
+    </fileSet>
+		<fileSet filtered="true" encoding="UTF-8">
+			<directory></directory>
+			<includes>
+				<include>Jenkinsfile</include>
+			</includes>
+		</fileSet>
+		<fileSet filtered="false" encoding="UTF-8">
+			<directory>src/main/jib</directory>
+			<includes>
+				<include>**/*.keepme</include>
+			</includes>
+		</fileSet>
+		<fileSet filtered="true">
+			<directory>src/main/docker</directory>
+			<includes>
+				<include>Dockerfile</include>
+				<include>**/*.</include>
+			</includes>
+		</fileSet>
+		<fileSet filtered="true" packaged="true" encoding="UTF-8">
+			<directory>src/main/java</directory>
+			<includes>
+				<include>**/*.java</include>
+			</includes>
+		</fileSet>
+		<fileSet filtered="true" encoding="UTF-8">
+			<directory>src/main/resources</directory>
+			<includes>
+        <include>**/*.xml</include>
+        <include>**/*.properties</include>
+      </includes>
+		</fileSet>
+		<fileSet encoding="UTF-8">
+      <directory>src/main/resources</directory>
+      <includes>
+        <include>**/*.sql</include>
+      </includes>
+    </fileSet>
+		<fileSet filtered="false" encoding="UTF-8">
+			<directory>src/main/webapp</directory>
+			<includes>
+        <include>**/*.xml</include>
+      </includes>
+		</fileSet>
+		<fileSet encoding="UTF-8">
+      <directory>src/main/webapp</directory>
+      <includes>
+        <include>**/*.ico</include>
+        <include>**/*.png</include>
+      </includes>
+    </fileSet>
+		<fileSet filtered="true" packaged="true" encoding="UTF-8">
+			<directory>src/test/java</directory>
+			<includes>
+				<include>**/*.java</include>
+			</includes>
+		</fileSet>
+		<fileSet filtered="true" encoding="UTF-8">
+      <directory>src/test/resources</directory>
+      <includes>
+        <include>**/*.properties</include>
+      </includes>
+    </fileSet>
+    <fileSet filtered="true" encoding="UTF-8">
+      <directory>src/license</directory>
+      <includes>
+        <include>**/*.txt</include>
+        <include>**/*.properties</include>
+      </includes>
+    </fileSet>
+    <fileSet filtered="true" encoding="UTF-8">
+      <directory>src/quality</directory>
+      <includes>
+        <include>**/*.xml</include>
+      </includes>
+    </fileSet>
+	</fileSets>
+</archetype-descriptor>

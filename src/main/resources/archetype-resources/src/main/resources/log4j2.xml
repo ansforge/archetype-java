@@ -1,0 +1,45 @@
+#set( $dollar = '$' )
+#set( $pound = '#' )
+#set( $escape = '\' )
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+  <Properties>
+    <Property name="skipJansi">false</Property>
+    <Property name="PID">%pid</Property>
+    <Property name="LOG_FILE">logs/${artifactId}.log</Property>
+    <Property name="LOG_EXCEPTION_CONVERSION_WORD">%xEx</Property>
+    <Property name="LOG_LEVEL_PATTERN">%5p</Property>
+    <Property name="LOG_DATEFORMAT_PATTERN">yyyy-MM-dd HH:mm:ss.SSS</Property>
+    <Property name="CONSOLE_LOG_PATTERN">%style{%d{${dollar}{LOG_DATEFORMAT_PATTERN}}}{dim} %style{${dollar}{LOG_LEVEL_PATTERN}} %style{${dollar}{sys:PID}}{magenta} %style{---}{dim} %style{[%15.15t]}{dim} %style{%-40.40c{1.}}{cyan} %style{:}{dim} %m%n${dollar}{sys:LOG_EXCEPTION_CONVERSION_WORD}</Property>
+    <Property name="FILE_LOG_PATTERN">%d{${dollar}{LOG_DATEFORMAT_PATTERN}} ${dollar}{LOG_LEVEL_PATTERN} ${dollar}{sys:PID} --- [%t] %-40.40c{1.} : %replace{%msg}{[\r\n]}{}%n${dollar}{sys:LOG_EXCEPTION_CONVERSION_WORD}</Property>
+
+  </Properties>
+  <Appenders>
+    <Console name="Console" target="SYSTEM_OUT" follow="true">
+      <PatternLayout pattern="${dollar}{sys:CONSOLE_LOG_PATTERN}" />
+    </Console>
+    <RollingFile name="File" fileName="${dollar}{sys:LOG_FILE}" filePattern="${dollar}{sys:LOG_PATH}/${dollar}${dollar}{date:yyyy-MM}/app-%d{yyyy-MM-dd-HH}-%i.log.gz">
+      <PatternLayout>
+        <Pattern>${dollar}{sys:FILE_LOG_PATTERN}</Pattern>
+      </PatternLayout>
+      <Policies>
+        <SizeBasedTriggeringPolicy size="10 MB" />
+      </Policies>
+    </RollingFile>
+  </Appenders>
+  <Loggers>
+    <Logger name="org.apache.catalina.startup.DigesterFactory" level="error" />
+    <Logger name="org.apache.catalina.util.LifecycleBase" level="error" />
+    <Logger name="org.apache.coyote.http11.Http11NioProtocol" level="warn" />
+    <logger name="org.apache.sshd.common.util.SecurityUtils" level="warn"/>
+    <Logger name="org.apache.tomcat.util.net.NioSelectorPool" level="warn" />
+    <Logger name="org.eclipse.jetty.util.component.AbstractLifeCycle" level="error" />
+    <Logger name="org.hibernate.validator.internal.util.Version" level="warn" />
+    <logger name="org.springframework.boot.actuate.endpoint.jmx" level="warn"/>
+    <Logger name="${package}" level="trace" />
+    <Root level="warn">
+      <AppenderRef ref="Console" />
+      <AppenderRef ref="File" />
+    </Root>
+  </Loggers>
+</Configuration>
